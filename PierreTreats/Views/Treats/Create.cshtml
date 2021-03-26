@@ -14,14 +14,14 @@
   @Html.TextBoxFor(model => model.Description)</p>
 
   <p>@Html.LabelFor(model => model.Price)
-  @Html.TextAreaFor(model => model.Price)</p>
+  @Html.TextBoxFor(model => model.Price)</p>
 
-  @Html.LabelFor(model => model.Rating)
+  <p>@Html.LabelFor(model => model.Rating)
   @Html.DropDownListFor(model => model.Rating,
     new SelectList(Enum.GetValues(typeof(Rating))),
-    "Select a Rating")
+    "Select a Rating")</p>
 
-  <input type="submit" value="Add treat to the PierreTreats" class="btn btn-default">
+  <input type="submit" value="Add new treat" class="btn btn-success">
 }
 
 <p>@Html.ActionLink("Back to all treats", "Index")</p>

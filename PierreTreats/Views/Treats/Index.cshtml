@@ -20,7 +20,7 @@
   <ul>
     @foreach (Treat treat in Model)
     {
-      <div class="contentbox treat">
+      <div class="contentbox flavor">
         <li>
           @Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) |
           @for (int i = 0; i < (int)(treat.Rating + 1); i++)
