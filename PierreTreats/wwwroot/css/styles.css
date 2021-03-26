@@ -4,17 +4,17 @@ div#footer {
   left:0px;
   width:100%;
   color:#CCC;
-  background:#333;
+  background:rgb(255, 152, 212);
   padding:8px;
-  background-image: url("../img/treatbox_footer.png");
+  background-image: url("../img/pierrelogo_footer.png");
   background-repeat: no-repeat;
   background-position: right;
 }
 
 body {
-  background-image: url("../img/treatbox.png");
+  background-image: url("../img/pierrelogo.png");
   background-repeat: no-repeat;
-  /* background-position: center; */
+  background-color: lightpink;
 }
 
 a:link {
@@ -24,6 +24,7 @@ a:link {
 a:hover {
   color: red;
 }
+
 td{
   text-align: center;
 }
@@ -33,10 +34,6 @@ td{
   font-size: 30px;
 }
 
-/* .subheader {
-
-} */
-
 .glove {
   background-image: url("../img/glove.png");
   height: 40px;
@@ -44,9 +41,4 @@ td{
 
 .center {
   text-align: center;
-}
-
-.jumbotron {
-  margin: 0 0 5vh 40vw;
-  min-width: 500px;
 }
