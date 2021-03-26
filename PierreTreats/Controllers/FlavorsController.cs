@@ -24,16 +24,6 @@ namespace PierreTreats.Controllers
       _db = db;
     }
 
-    // public async Task<ActionResult> Index()
-    // {
-    //   var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    //   var currentUser = await _userManager.FindByIdAsync(userId);
-    //   var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
-    //   return View(userFlavors);
-    //   // List<Flavor> model = _db.Flavors.ToList();
-    //   // return View(model);
-    // }
-
     public async Task<ActionResult> Index(string userInput)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

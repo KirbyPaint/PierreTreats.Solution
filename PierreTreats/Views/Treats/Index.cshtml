@@ -4,34 +4,37 @@
 
 @using PierreTreats.Models;
 
-<span class="header">Treats</span>
-@using (Html.BeginForm())
-{
-  @Html.TextBox("userInput")
-  <input type="submit" value="Search" class="btn btn-default">
-}
-<hr />
-
-@if (Model.Count == 0)
-{
-  <p>There are no treats at the moment.</p>
-}
-<ul>
-  @foreach (Treat treat in Model)
+<div class="center">
+  @using (Html.BeginForm())
   {
-    <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) | 
-    @for (int i = 0; i < (int) treat.Rating +1; i++)
-    {
-      <img src="../img/star.png" height="20px">
-    }
-    </li>
+    <span class="header">Treats: </span>
+    @Html.TextBox("userInput")
+    <input type="submit" value="Search Treats" class="btn btn-info">
   }
-</ul>
-<tr>
-  <td><a href="/treats/create">Add a new treat</a> </td> |
 
+  @if (Model.Count == 0)
+  {
+    <p>There are no treats at the moment.</p>
+  }
 
-  <td>@Html.ActionLink("Sort By Rating", "Index", new {userInput = "Rating"})</td> |
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <div class="contentbox treat">
+        <li>
+          @Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) |
+          @for (int i = 0; i < (int)(treat.Rating + 1); i++)
+          {
+            <img src="../img/star.png" height="20px">
+          }
+        </li>
+      </div>
+    }
+  </ul>
 
-  <td>@Html.ActionLink("Back", "Index", "Home")</td>
-</tr>
+  <div class="navbar">
+    @Html.ActionLink("Add a new treat", "Create")
+    <span class="padding"><img src="../img/star.png" height="20px"></span>
+    @Html.ActionLink("Return Home", "Index", "Home")
+  </div>
+</div>
