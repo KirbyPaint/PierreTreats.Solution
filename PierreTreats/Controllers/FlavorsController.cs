@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using System.Linq;
+using System;
 
 
 namespace PierreTreats.Controllers
@@ -23,14 +24,39 @@ namespace PierreTreats.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    // public async Task<ActionResult> Index()
+    // {
+    //   var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    //   var currentUser = await _userManager.FindByIdAsync(userId);
+    //   var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+    //   return View(userFlavors);
+    //   // List<Flavor> model = _db.Flavors.ToList();
+    //   // return View(model);
+    // }
+
+    public async Task<ActionResult> Index(string userInput)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userFlavors);
-      // List<Flavor> model = _db.Flavors.ToList();
-      // return View(model);
+      if (userInput == "Rating")
+      {
+        var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
+        ModelState.Clear();
+        return View(userFlavors);
+      }
+      else
+      {
+        if (!(String.IsNullOrEmpty(userInput)))
+        {
+          var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Name.Contains(userInput)).ToList();
+          return View(userFlavors);
+        }
+        else
+        {
+          var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+          return View(userFlavors);
+        }
+      }
     }
 
     public ActionResult Create()
