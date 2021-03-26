@@ -56,9 +56,27 @@ ul, li {
 
 .contentbox {
   background-color: white;
-  border: 5px solid purple;
+  border: 5px groove purple;
   border-radius: 30px;
   max-width: 50%;
   transform: translate(50%, 0px);
   padding: 15px;
+}
+
+.navbar {
+  background-color: white;
+  border: 5px groove purple;
+  border-radius: 5px;
+  padding: 15px;
+  position:fixed;
+  bottom:50px;
+  left:50%;
+  transform: translate(-50%, 0px);
+  font-family: 'Rock Salt', cursive;
+  font-size: 30px;
+}
+
+.padding {
+  padding-left: 15px;
+  padding-right: 15px;
 }
