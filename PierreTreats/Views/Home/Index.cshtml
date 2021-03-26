@@ -4,18 +4,20 @@
 @model List<PierreTreats.Models.Flavor>;
 
 <div class="center">
-<div class="header">Pierre's Sweet Treats</div>
-<hr>
-@if (@Model.Count == 0 && User.Identity.IsAuthenticated)
-{
-  <p>No Flavor categories have been created yet:
-  @Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
-}
-else
-{
-  <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
-  <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-}
-  <p>@Html.ActionLink("Create an account", "Index", "Account") / 
-  @Html.ActionLink("Log in", "Login", "Account")</p>
+  <div class="header">Pierre's Sweet Treats</div>
+  <hr>
+  <div class="contentbox">
+    @if (@Model.Count == 0 && User.Identity.IsAuthenticated)
+    {
+      <p>No Flavor categories have been created yet:
+        @Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
+    }
+    else
+    {
+      <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
+      <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+    }
+    <p>@Html.ActionLink("Create an account", "Index", "Account") /
+      @Html.ActionLink("Log in", "Login", "Account")</p>
+  </div>
 </div>

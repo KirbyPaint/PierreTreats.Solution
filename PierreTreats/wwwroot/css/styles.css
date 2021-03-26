@@ -42,3 +42,11 @@ td{
 .center {
   text-align: center;
 }
+
+.contentbox {
+  background-color: white;
+  border: 5px solid purple;
+  border-radius: 30px;
+  max-width: 50%;
+  transform: translate(50%, 0px);
+}
