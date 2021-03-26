@@ -7,9 +7,8 @@
 <div class="header">Treats</div>
 @using (Html.BeginForm())
 {
-  @* <p>Search Treats</p> *@
   @Html.TextBox("userInput")
-  <input type="submit" value="Search" class="btn btn-default" />
+  <input type="submit" value="Search" class="btn btn-default">
 }
 <hr />
 
@@ -24,7 +23,6 @@
     @for (int i = 0; i < (int) treat.Rating +1; i++)
     {
       <img src="../img/glove.png" height="20px">
-      @* <span class="glove"></span> *@
     }
     </li>
   }

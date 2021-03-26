@@ -3,7 +3,7 @@ div#footer {
   bottom:0px;
   left:0px;
   width:100%;
-  color:#CCC;
+  color:rgb(255, 255, 255);
   background:rgb(255, 152, 212);
   padding:8px;
   background-image: url("../img/pierrelogo_footer.png");
@@ -18,11 +18,11 @@ body {
 }
 
 a:link {
-  color: maroon;
+  color: blue;
 }
 
 a:hover {
-  color: red;
+  color: lightseagreen;
 }
 
 td{
