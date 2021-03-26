@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreTreats.Models;
+
+<div class="header">Treats</div>
+@using (Html.BeginForm())
+{
+  @* <p>Search Treats</p> *@
+  @Html.TextBox("userInput")
+  <input type="submit" value="Search" class="btn btn-default" />
+}
+<hr />
+
+@if (Model.Count == 0)
+{
+  <p>There are no treats at the moment.</p>
+}
+<ul>
+  @foreach (Treat treat in Model)
+  {
+    <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) | 
+    @for (int i = 0; i < (int) treat.Rating +1; i++)
+    {
+      <img src="../img/glove.png" height="20px">
+      @* <span class="glove"></span> *@
+    }
+    </li>
+  }
+</ul>
+<tr>
+  <td><a href="/treats/create">Add a new treat</a> </td> |
+
+
+  <td>@Html.ActionLink("Sort By Rating", "Index", new {userInput = "Rating"})</td> |
+
+  <td>@Html.ActionLink("Back", "Index", "Home")</td>
+</tr>

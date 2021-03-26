@@ -1,0 +1,50 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTreats.Models.Treat
+
+<div class="header">@Html.DisplayFor(model => model.Name)</div>
+
+<hr>
+
+<td>Description: @Html.DisplayFor(model => model.Description)</p>
+
+<p>Ingredients: @Html.DisplayFor(model => model.Ingredients)</p>
+
+<p>Instructions: @Html.DisplayFor(model => model.Instructions)</p>
+
+@* Here is where we could get fun and use a conditional to render boxing gloves instead of the word *@
+<p>Rating: 
+@for (int i = 0; i < (int) Model.Rating+1; i++)
+{
+  <img src="~/img/glove.png" height="20px">
+  @* <span class="glove"></span> *@
+}
+</p>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This treat is not associated with any flavors yet</p>
+}
+else
+{
+  <h4>Flavors associated with this treat</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <input type="submit" value="Delete" class="btn btn-default">
+      }
+    }
+  </ul>
+}
+<tr>
+<td>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</td> |
+<td>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</td> |
+<td>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</td> |
+<td>@Html.ActionLink("Back to Treats", "Index")</td>
+</tr>

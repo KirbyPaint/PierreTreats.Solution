@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTreats.Models.Flavor;
+
+<div class="header">Add a Treat</div>
+
+<h4>Add a Treat to this Flavor: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.Label("Select Treat")
+  @Html.DropDownList("TreatId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>Back to @Html.ActionLink("treat list", "Index")</p>

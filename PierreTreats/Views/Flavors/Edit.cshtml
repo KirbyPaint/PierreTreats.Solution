@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreTreats.Models.Flavor;
+
+<div class="header">Edit @Html.DisplayFor(model => model.Name)</div>
+
+<hr>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { required = "required" })
+
+  <input type="submit" value="Save" class="btn btn-default" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
