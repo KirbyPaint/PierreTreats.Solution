@@ -5,15 +5,17 @@
 
 <div class="center">
 <div class="header">Pierre's Sweet Treats</div>
+<hr>
 @if (@Model.Count == 0 && User.Identity.IsAuthenticated)
 {
-  <h3>No flavors have been created yet</h3>
-  <p>@Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
+  <p>No Flavor categories have been created yet:
+  @Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
 }
 else
 {
   <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
   <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 }
-  <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+  <p>@Html.ActionLink("Create an account", "Index", "Account") / 
+  @Html.ActionLink("Log in", "Login", "Account")</p>
 </div>
