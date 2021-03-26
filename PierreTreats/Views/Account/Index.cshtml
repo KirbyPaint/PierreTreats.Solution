@@ -2,14 +2,14 @@
   Layout = "_Layout";
 }
 
-<h2>Authentication with Identity</h2>
-<hr />
+<div class="header">Authentication with Identity</div>
+<hr>
 @if (User.Identity.IsAuthenticated)
 {
   <p> Hello @User.Identity.Name!</p>
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <input type="submit" class="btn btn-default" value="log out" class="btn btn-danger">
+    <input type="submit" class="btn btn-danger" value="log out">
   }
 }
 else
