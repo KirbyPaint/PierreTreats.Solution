@@ -7,8 +7,8 @@
 <span class="header">Flavor details</span>
 
 <hr>
-
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<div class="contentbox">
+<h3>Flavor @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -29,9 +29,14 @@ else
     }
   </ul>
 }
-<tr>
-<td>@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</td> |
-<td>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</td> |
-<td>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</td> |
-<td>@Html.ActionLink("Back to Flavors", "Index")</td> 
-</tr>
+</div>
+
+  <div class="navbar">
+    @Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })
+    <span class="padding"><img src="~/img/star.png" height="20px"></span>
+    @Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })
+    <span class="padding"><img src="~/img/star.png" height="20px"></span>
+    @Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })
+    <span class="padding"><img src="~/img/star.png" height="20px"></span>
+    @Html.ActionLink("Back to All Flavors", "Index")
+  </div>

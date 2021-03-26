@@ -24,27 +24,6 @@ namespace PierreTreats.Controllers
       _userManager = userManager;
     }
 
-    // public async Task<ActionResult> Index()
-    // {
-    //   var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    //   var currentUser = await _userManager.FindByIdAsync(userId);
-    //   var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
-    //   return View(userTreats);
-    // }
-
-    // public async Task<IActionResult> Index(string userInput)
-    // {
-    //   var items = from model in _db.Items
-    //               select model;
-
-    //   // This if
-    //   if (!(String.IsNullOrEmpty(userInput)))
-    //   {
-    //     items = items.Where(model => model.Description.Contains(userInput));
-    //   }
-    //   return View(await items.ToListAsync());
-    // }
-
     public async Task<ActionResult> Index(string userInput)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -59,7 +38,7 @@ namespace PierreTreats.Controllers
       {
         if (!(String.IsNullOrEmpty(userInput)))
         {
-          var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Ingredients.Contains(userInput) || model.Name.Contains(userInput)).ToList();
+          var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Description.Contains(userInput) || model.Name.Contains(userInput)).ToList();
           return View(userTreats);
         }
         else

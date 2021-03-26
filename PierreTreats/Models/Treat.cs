@@ -13,8 +13,7 @@ namespace PierreTreats.Models
     public string Name { get; set; }
     public string Description { get; set; }
     public Rating Rating { get; set; }
-    public string Ingredients { get; set; }
-    public string Instructions { get; set; }
+    public string Price { get; set; }
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<FlavorTreat> JoinEntities { get; }
   }
