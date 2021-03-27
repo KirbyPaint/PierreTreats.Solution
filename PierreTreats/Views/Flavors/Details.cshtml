@@ -24,7 +24,7 @@ else
       @using (Html.BeginForm("DeleteTreat", "Flavors"))
       {
         @Html.Hidden("joinId", @join.FlavorTreatId)
-        <input type="submit" value="Delete" class="btn btn-default" />
+        <input type="submit" value="Delete" class="btn btn-danger">
       }
     }
   </ul>
