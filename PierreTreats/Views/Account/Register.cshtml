@@ -8,19 +8,20 @@
 
 <span class="header">Register a New User</span>
 <hr>
-<p>Password must contain at least six characters, a capital letter, a digit, and a special character</p>
+
 <div class="contentbox center">
+  <p>Password must contain at least six characters, a capital letter, a digit, and a special character</p>
   @using (Html.BeginForm("Register", "Account", FormMethod.Post))
   {
     <p>@Html.LabelFor(user => user.Email):
-    @Html.TextBoxFor(user => user.Email, new { @required="required" })</p>
-  
+      @Html.TextBoxFor(user => user.Email, new { @required="required" })</p>
+
     <p>@Html.LabelFor(user => user.Password):
-    @Html.PasswordFor(user => user.Password, new { @required="required" })</p>
-  
+      @Html.PasswordFor(user => user.Password, new { @required="required" })</p>
+
     <p>@Html.LabelFor(user => user.ConfirmPassword):
-    @Html.PasswordFor(user => user.ConfirmPassword, new { @required="required" })</p>
-  
-    <input type="submit" value="Register" class="btn btn-success"/>
+      @Html.PasswordFor(user => user.ConfirmPassword, new { @required="required" })</p>
+
+    <input type="submit" value="Register" class="btn btn-success" />
   }
 </div>

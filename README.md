@@ -84,13 +84,19 @@ Once you see this in the terminal, you will be able to open the web page as a li
 
 ## How To Use The Program
 
+Upon opening the program, you will see a landing page with links to listing all flavors, all treats, as well as a bottom navigation bar that will change whether you are logged in or not.  
 
+First, you will want to create an account, for maximum accessibility. Users who are not logged in can only view items, but not create, edit, or delete them. The password you login with must contain at least six characters, a capital letter, a digit, and a special character.  
 
-All pages will contain a link back to the Home page.  
+Once you have an account, the full site is available to you. You will be able to navigate into either the Flavors or the Treats to create, edit, view, and delete new items. Additionally, if you are logged in and at the Home Page, the Login hotbar will be replaced with an "Account Management" link where you can log out.  
+
+Clicking on the Flavors or Treats links will take you to a page where you can view all of the items that have been added. If you are logged in, you will see your items. If you are not logged in, you will be able to see all items.  
+
+Clicking on a Flavor or Treat will enable you to view all associated items. For example, if you have a Flavor named Chocolate, and you've attributed the Chocolate flavor to a Cake and Cupcake Treat, then the Chocolate listing will show both the Cake and Cupcake options. Conversely, if you navigate to the Treats page and select that Cupcake, you would be able to see that it has a Chocolate flavor attributed.  
+
+From the Details of either a Flavor or a Treat, you are able to Edit, Delete, or Add a new Treat or Flavor (respective to the original category you chose). Also from the Details screen, you can remove an attributed Flavor or Treat. 
 
 ## Known Bugs/Issues
-
-__
 
 ## Support and contact details
 

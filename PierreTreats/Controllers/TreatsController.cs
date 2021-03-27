@@ -28,23 +28,48 @@ namespace PierreTreats.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      if (userInput == "Rating")
+      if (User.Identity.IsAuthenticated)
       {
-        var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
-        ModelState.Clear();
-        return View(userTreats);
-      }
-      else
-      {
-        if (!(String.IsNullOrEmpty(userInput)))
+        if (userInput == "Rating")
         {
-          var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Description.Contains(userInput) || model.Name.Contains(userInput)).ToList();
+          var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
+          ModelState.Clear();
           return View(userTreats);
         }
         else
         {
-          var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
+          if (!(String.IsNullOrEmpty(userInput)))
+          {
+            var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Name.Contains(userInput)).ToList();
+            return View(userTreats);
+          }
+          else
+          {
+            var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
+            return View(userTreats);
+          }
+        }
+      }
+      else
+      {
+        if (userInput == "Rating")
+        {
+          var userTreats = _db.Treats.OrderByDescending(model => model.Rating).ToList();
+          ModelState.Clear();
           return View(userTreats);
+        }
+        else
+        {
+          if (!(String.IsNullOrEmpty(userInput)))
+          {
+            var userTreats = _db.Treats.Where(model => model.Name.Contains(userInput)).ToList();
+            return View(userTreats);
+          }
+          else
+          {
+            var userTreats = _db.Treats.ToList();
+            return View(userTreats);
+          }
         }
       }
     }

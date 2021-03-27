@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
-using PierreTreats.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using PierreTreats.Models;
 using System;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 
 namespace PierreTreats.Controllers
@@ -29,23 +29,48 @@ namespace PierreTreats.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      if (userInput == "Rating")
+      if (User.Identity.IsAuthenticated)
       {
-        var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
-        ModelState.Clear();
-        return View(userFlavors);
-      }
-      else
-      {
-        if (!(String.IsNullOrEmpty(userInput)))
+        if (userInput == "Rating")
         {
-          var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Name.Contains(userInput)).ToList();
+          var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
+          ModelState.Clear();
           return View(userFlavors);
         }
         else
         {
-          var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+          if (!(String.IsNullOrEmpty(userInput)))
+          {
+            var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).Where(model => model.Name.Contains(userInput)).ToList();
+            return View(userFlavors);
+          }
+          else
+          {
+            var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+            return View(userFlavors);
+          }
+        }
+      }
+      else
+      {
+        if (userInput == "Rating")
+        {
+          var userFlavors = _db.Flavors.OrderByDescending(model => model.Rating).ToList();
+          ModelState.Clear();
           return View(userFlavors);
+        }
+        else
+        {
+          if (!(String.IsNullOrEmpty(userInput)))
+          {
+            var userFlavors = _db.Flavors.Where(model => model.Name.Contains(userInput)).ToList();
+            return View(userFlavors);
+          }
+          else
+          {
+            var userFlavors = _db.Flavors.ToList();
+            return View(userFlavors);
+          }
         }
       }
     }
