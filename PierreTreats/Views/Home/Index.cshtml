@@ -7,21 +7,34 @@
 <div class="center">
   <span class="header">Pierre's Sweet Treats</span>
   <hr>
-  <div class="contentbox">
-    @if (@Model.Count == 0 && User.Identity.IsAuthenticated)
-    {
+
+  @if (@Model.Count == 0 && User.Identity.IsAuthenticated)
+  {
+    <div class="contentbox">
       <p>No Flavor categories have been created yet:
         @Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
-    }
-    else
-    {
-      <p><span class="flavor">@Html.ActionLink("See all Flavors", "Index", "Flavors")</span></p>
-      <p><span class="flavor">@Html.ActionLink("See all Treats", "Index", "Treats")</span></p>
-    }
-  </div>
-  <div class="navbar">
-    @Html.ActionLink("Create an account", "Index", "Account")
-    <span class="padding"><img src="../img/star.png" height="20px"></span>
-    @Html.ActionLink("Log in", "Login", "Account")
-  </div>
+    </div>
+  }
+  else
+  {
+    <div class="contentbox flavor">
+      <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
+      <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+    </div>
+  }
+
+  @if (User.Identity.IsAuthenticated)
+  {
+    <div class="navbar">
+      @Html.ActionLink("Account Management", "Index", "Account")
+    </div>
+  }
+  else
+  {
+    <div class="navbar">
+      @Html.ActionLink("Create an account", "Index", "Account")
+      <span class="padding"><img src="../img/star.png" height="20px"></span>
+      @Html.ActionLink("Log in", "Login", "Account")
+    </div>
+  }
 </div>
