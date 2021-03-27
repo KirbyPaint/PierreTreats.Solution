@@ -98,6 +98,8 @@ From the Details of either a Flavor or a Treat, you are able to Edit, Delete, or
 
 ## Known Bugs/Issues
 
+Users can add duplicate Treats to Flavors and vice-versa.  
+
 ## Support and contact details
 
 _Discord: @KirbyPaint#0751_
