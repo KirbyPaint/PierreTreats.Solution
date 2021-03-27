@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
-using PierreTreats.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using PierreTreats.Models;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
-using System.Linq;
-using System;
 
 namespace PierreTreats.Controllers
 {

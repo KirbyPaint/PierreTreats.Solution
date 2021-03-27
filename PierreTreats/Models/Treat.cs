@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace PierreTreats.Models
@@ -9,6 +8,7 @@ namespace PierreTreats.Models
     {
       this.JoinEntities = new HashSet<FlavorTreat>();
     }
+
     public int TreatId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
@@ -20,10 +20,10 @@ namespace PierreTreats.Models
 
   public enum Rating
   {
-    One, // = 0
+    One,
     Two,
     Three,
     Four,
-    Five // = 4
+    Five
   }
 }

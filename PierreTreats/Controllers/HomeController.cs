@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using PierreTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
-using PierreTreats.Models;
 
 namespace PierreTreats.Controllers
 {
@@ -12,6 +12,7 @@ namespace PierreTreats.Controllers
     {
       _db = db;
     }
+
     [HttpGet("/")]
     public ActionResult Index()
     {

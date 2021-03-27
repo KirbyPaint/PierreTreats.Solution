@@ -7,7 +7,6 @@ namespace PierreTreats.Models
 {
   public class PierreTreatsContextFactory : IDesignTimeDbContextFactory<PierreTreatsContext>
   {
-
     PierreTreatsContext IDesignTimeDbContextFactory<PierreTreatsContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()

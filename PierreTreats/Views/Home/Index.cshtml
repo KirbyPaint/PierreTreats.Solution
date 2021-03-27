@@ -1,18 +1,18 @@
 @{
-  Layout = "_Home";
+  Layout = "_Layout";
 }
-
-@model List<PierreTreats.Models.Flavor>;
 
 <div class="center">
   <span class="header">Pierre's Sweet Treats</span>
   <hr>
 
-  @if (@Model.Count == 0 && User.Identity.IsAuthenticated)
+  @if (@Model.Count == 0)
   {
-    <div class="contentbox">
-      <p>No Flavor categories have been created yet:
-        @Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
+    <div class="contentbox flavor">
+      <p>Nothing in the database:</p>
+      <p>@Html.ActionLink("Add new Flavor", "Create", "Flavors")</p>
+      <p>or</p>
+      <p>@Html.ActionLink("Add new Treat", "Create", "Treats")</p>
     </div>
   }
   else

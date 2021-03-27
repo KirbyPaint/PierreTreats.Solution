@@ -18,10 +18,10 @@ namespace PierreTreats.Models
 
   public enum FlavorRating
   {
-    One, // = 0
+    One,
     Two,
     Three,
     Four,
-    Five // = 4
+    Five
   }
 }
