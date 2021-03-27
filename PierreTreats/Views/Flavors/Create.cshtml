@@ -8,6 +8,9 @@
   @model PierreTreats.Models.Flavor
 
   <span class="header">Add a new flavor</span>
+
+  <hr>
+
   <div class="contentbox">
     @using (Html.BeginForm())
     {
@@ -15,9 +18,9 @@
         @Html.TextBoxFor(model => model.Name, new { @required="required" })</p>
 
       <p>@Html.LabelFor(model => model.Rating)
-      @Html.DropDownListFor(model => model.Rating,
-        new SelectList(Enum.GetValues(typeof(FlavorRating))),
-        "Select a Rating")</p>
+        @Html.DropDownListFor(model => model.Rating,
+          new SelectList(Enum.GetValues(typeof(FlavorRating))),
+          "Select a Rating")</p>
 
       <input type="submit" value="Add new flavor" class="btn btn-success">
     }
