@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using System.Linq;
-using System.Collections.Generic;
 using System;
 
 namespace PierreTreats.Controllers
@@ -24,6 +23,7 @@ namespace PierreTreats.Controllers
       _userManager = userManager;
     }
 
+    [AllowAnonymous]
     public async Task<ActionResult> Index(string userInput)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -71,6 +71,7 @@ namespace PierreTreats.Controllers
       return RedirectToAction("Index");
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
