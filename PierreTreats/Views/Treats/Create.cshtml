@@ -5,23 +5,27 @@
 @model PierreTreats.Models.Treat
 
 <span class="header">Add a new Treat</span>
-@using (Html.BeginForm())
-{
-  <p>@Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)</p>
+<div class="contentbox">
+  @using (Html.BeginForm())
+  {
+    <p>@Html.LabelFor(model => model.Name):
+      @Html.TextBoxFor(model => model.Name, new { @required="required"})</p>
 
-  <p>@Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)</p>
+    <p>@Html.LabelFor(model => model.Description):
+      @Html.TextBoxFor(model => model.Description, new { @class="wide"})</p>
 
-  <p>@Html.LabelFor(model => model.Price)
-  @Html.TextBoxFor(model => model.Price)</p>
+    <p>@Html.LabelFor(model => model.Price) (US Dollars):
+      @Html.TextBoxFor(model => model.Price, new { @class="wide"})</p>
 
-  <p>@Html.LabelFor(model => model.Rating)
-  @Html.DropDownListFor(model => model.Rating,
-    new SelectList(Enum.GetValues(typeof(Rating))),
-    "Select a Rating")</p>
+    <p>@Html.LabelFor(model => model.Rating)
+      @Html.DropDownListFor(model => model.Rating,
+        new SelectList(Enum.GetValues(typeof(Rating))),
+        "Select a Rating")</p>
 
-  <input type="submit" value="Add new treat" class="btn btn-success">
-}
+    <input type="submit" value="Add new treat" class="btn btn-success">
+  }
+</div>
 
-<p>@Html.ActionLink("Back to all treats", "Index")</p>
+<div class="navbar">
+  @Html.ActionLink("Back to all treats", "Index")
+</div>

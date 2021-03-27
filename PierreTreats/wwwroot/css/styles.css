@@ -80,3 +80,7 @@ ul, li {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.wide {
+  width: 100%;
+}
