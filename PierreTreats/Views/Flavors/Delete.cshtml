@@ -8,10 +8,12 @@
 
 <hr>
 
-<p>Are you sure? This action cannot be undone.</p>
+<div class="contentbox center">
+  <p>Are you sure? This action cannot be undone.</p>
 
-@using (Html.BeginForm())
-{
-  <input type="submit" value="Yes" class="btn btn-danger">
-}
-<p>@Html.ActionLink("Don't delete, I changed my mind!", "Index")</p>
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="DELETE" class="btn btn-danger">
+    <a href='@Url.Action("Index", "Flavors")' class="btn btn-info">Back To Safety</a>
+  }
+</div>
