@@ -94,12 +94,14 @@ Clicking on the Flavors or Treats links will take you to a page where you can vi
 
 Clicking on a Flavor or Treat will enable you to view all associated items. For example, if you have a Flavor named Chocolate, and you've attributed the Chocolate flavor to a Cake and Cupcake Treat, then the Chocolate listing will show both the Cake and Cupcake options. Conversely, if you navigate to the Treats page and select that Cupcake, you would be able to see that it has a Chocolate flavor attributed.  
 
-From the Details of either a Flavor or a Treat, you are able to Edit, Delete, or Add a new Treat or Flavor (respective to the original category you chose). Also from the Details screen, you can remove an attributed Flavor or Treat. 
+From the Details of either a Flavor or a Treat, you are able to Edit, Delete, or Add a new Treat or Flavor (respective to the original category you chose). Also from the Details screen, you can remove an attributed Flavor or Treat.  
+
+Easter Egg: typing "Rating" into the search bar on either the Treats or Flavors pages will sort all food items by their ratings.  
 
 ## Known Bugs/Issues
 
 Users can add duplicate Treats to Flavors and vice-versa.  
-CSS could be improved.  
+CSS could be improved. Part of the reason that not all of the text uses the custom font is for readability reasons.  
 
 ## Support and contact details
 
