@@ -143,6 +143,7 @@ namespace PierreTreats.Controllers
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
+      var test = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == TreatId); // COME BACK TO THIS
       if (TreatId != 0)
       {
         _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });

@@ -8,19 +8,30 @@
 
 <hr>
 
-<div class="contentbox">
-  <h4>Add a Flavor to: @Html.DisplayFor(model => model.Name)</h4>
-  
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.TreatId)
-  
-    <p>@Html.Label("Select flavor"): 
-    @Html.DropDownList("FlavorId")</p>
-  
-    <input type="submit" value="Save" class="btn btn-success">
-  }
-</div>
+@if (((IEnumerable<dynamic>)ViewBag.FlavorId).Count() == 0)
+{
+  <div class="contentbox center flavor">
+    <p>No flavors found.</p>
+    <p>@Html.ActionLink("Add a flavor!", "Create", "Flavors")</p>
+  </div>
+}
+else
+{
+  <div class="contentbox">
+    <h4>Add a Flavor to: @Html.DisplayFor(model => model.Name)</h4>
+
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.TreatId)
+
+      <p>@Html.Label("Select flavor"):
+        @Html.DropDownList("FlavorId")</p>
+
+      <input type="submit" value="Save" class="btn btn-success">
+    }
+  </div>
+}
+
 
 <div class="navbar">
   @Html.ActionLink("Flavor List", "Index", "Flavors")

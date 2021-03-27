@@ -125,23 +125,13 @@ namespace PierreTreats.Controllers
       return RedirectToAction("Index");
     }
 
-    // public async Task<ActionResult> AddFlavor(int id)
-    // {
-    //   var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    //   var currentUser = await _userManager.FindByIdAsync(userId);
-
-    //   var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-    //   // Think the ViewBag is the way to go here - it just lists all flavors
-    //   ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
-    //   return View(thisTreat);
-    // }
     public async Task<ActionResult> AddFlavor(int id)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList(); // new line
-      ViewBag.FlavorId = new SelectList(userFlavors, "FlavorId", "Name"); // targeting userFlavors instead of _db.Flavors
+      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      ViewBag.FlavorId = new SelectList(userFlavors, "FlavorId", "Name");
       return View(thisTreat);
     }
 
