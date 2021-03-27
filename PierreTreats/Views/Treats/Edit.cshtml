@@ -9,25 +9,29 @@
 
 <hr>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.TreatId)
+<div class="contentbox">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.TreatId)
+  
+    <p>@Html.LabelFor(model => model.Name): 
+    @Html.TextBoxFor(model => model.Name, new { required = "required" })</p>
+  
+    <p>@Html.LabelFor(model => model.Description): 
+    @Html.TextBoxFor(model => model.Description, new { @class="wide"})</p>
+  
+    <p>@Html.LabelFor(model => model.Price): 
+    @Html.TextBoxFor(model => model.Price, new { @class="wide"})</p>
+  
+    <p>@Html.LabelFor(model => model.Rating)
+    @Html.DropDownListFor(model => model.Rating,
+      new SelectList(Enum.GetValues(typeof(Rating))),
+      "Select a Rating")</p>
+  
+    <input type="submit" value="Save" class="btn btn-success">
+  }
+</div>
 
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
-
-  @Html.LabelFor(model => model.Price)
-  @Html.TextBoxFor(model => model.Price)
-
-  @Html.LabelFor(model => model.Rating)
-  @Html.DropDownListFor(model => model.Rating,
-    new SelectList(Enum.GetValues(typeof(Rating))),
-    "Select a Rating")
-
-  <input type="submit" value="Save" class="btn btn-default">
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div class="navbar">
+  @Html.ActionLink("Back to list", "Index")
+</div>

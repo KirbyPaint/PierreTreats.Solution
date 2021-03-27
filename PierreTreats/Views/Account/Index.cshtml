@@ -4,16 +4,26 @@
 
 <span class="header">Authentication with Identity</span>
 <hr>
-@if (User.Identity.IsAuthenticated)
-{
-  <p> Hello @User.Identity.Name!</p>
-  @using (Html.BeginForm("LogOff", "Account"))
+<div class="contentbox">
+  @if (User.Identity.IsAuthenticated)
   {
-    <input type="submit" class="btn btn-danger" value="log out">
+    <p> Hello <em>@User.Identity.Name!</em></p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-danger" value="log out">
+    }
   }
-}
-else
-{
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
-}
+  else
+  {
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+  }
+</div>
+
+  <div class="navbar">
+    @Html.ActionLink("See all Flavors", "Index", "Flavors")
+    <span class="padding"><img src="~/img/star.png" height="20px"></span>
+    @Html.ActionLink("See all Treats", "Index", "Treats")
+    <span class="padding"><img src="~/img/star.png" height="20px"></span>
+    @Html.ActionLink("Home", "Index", "Home")
+  </div>
