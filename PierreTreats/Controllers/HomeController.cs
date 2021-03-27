@@ -18,12 +18,5 @@ namespace PierreTreats.Controllers
       List<Flavor> model = _db.Flavors.ToList();
       return View(model);
     }
-    // example of how to link photos to a page
-    [Route("/photos")]
-    public ActionResult Photos()
-    {
-      return View();
-    }
-
   }
 }
